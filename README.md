@@ -62,6 +62,10 @@ présente dans ses options, au moins 2 options, sans doublon.
 
 - **Images de fond** : remplacez les fichiers de `assets/backgrounds/`
   (les noms sont listés dans `lib/widgets/animated_background.dart`).
+- **Images des thèmes** : chaque carte de l'écran d'accueil utilise
+  l'image `assets/images/<id-du-thème>.jpg` déclarée dans
+  `lib/models/quiz_category.dart` (`imagePath`) ; remplacez ces fichiers
+  en conservant les noms, ou modifiez les `imagePath`.
 - **Icône de l'application** : remplacez `assets/logo.png` et les fichiers
   `android/app/src/main/res/mipmap-*/ic_launcher.png`.
 - **Durée par question** : paramètre `secondsPerQuestion` de `QuizScreen`
