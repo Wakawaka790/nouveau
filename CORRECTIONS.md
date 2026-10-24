@@ -62,7 +62,7 @@ et corrigé fichier par fichier.
 | 20 | `GeneratedPluginRegistrant.java` | Fichier **généré** (marqué « Generated file. Do not edit. ») : supprimé du dépôt et ajouté à `.gitignore`, Flutter le régénère à chaque build. Versionné, il provoque des erreurs dès qu'un plugin change. |
 | 21 | `.gitignore` | Ajouts : `/android/local.properties` (chemins propres à une machine, le PDF le disait lui-même) et `/.projet_extraite/`. |
 | 22 | `android/gradlew.bat` + `.gitattributes` (nouveau) | Fins de ligne converties en **CRLF** (cmd.exe peut échouer sur les `goto` en LF seul), et règle Git permanente `eol=crlf` / `gradlew eol=lf`. `gradlew` rendu exécutable. |
-| 23 | `test/quiz_game7_test.dart` (nouveau) | 7 tests unitaires : validation de `Question` (bonne réponse présente, doublons après `trim`, JSON incomplet), calcul du score (temps écoulé = 0 point, précision), tolérance de `UserProfile.fromJson`. |
+| 23 | `test/quiz_game7_test.dart` (nouveau) | 8 tests unitaires : validation de `Question` (mélange des options, bonne réponse présente, doublons après `trim`, JSON incomplet), calcul du score (temps écoulé = 0 point, précision), tolérance et aller-retour de `UserProfile`. |
 
 ## 5. Fichiers absents du PDF, recréés
 

@@ -6,7 +6,10 @@ par question, sons de retour et score total sauvegardé sur l'appareil.
 
 > Ce projet a été **restauré depuis le PDF** `code_complet_quiz_game7 (1).pdf`
 > puis corrigé — voir **[CORRECTIONS.md](CORRECTIONS.md)** pour la liste
-> détaillée des 23 corrections et des fichiers recréés.
+> détaillée des 23 corrections et des fichiers recréés, ainsi que
+> **[ANALYSE_FONCTIONNELLE.md](ANALYSE_FONCTIONNELLE.md)** pour l’analyse
+> fonctionnelle complète et **[FONCTIONS.md](FONCTIONS.md)** pour
+> l’inventaire des fonctions du code.
 
 ## Lancer l'application
 
