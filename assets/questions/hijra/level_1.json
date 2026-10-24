@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Vers quelle ville le Prophète a-t-il émigré ?",
+    "correct": "Médine",
+    "options": [
+      "Médine",
+      "Taïf",
+      "La Mecque"
+    ]
+  },
+  {
+    "question": "Qui accompagnait le Prophète lors de l'Hégire ?",
+    "correct": "Abou Bakr",
+    "options": [
+      "Abou Bakr",
+      "Omar",
+      "Hamza"
+    ]
+  },
+  {
+    "question": "Dans quelle grotte se sont-ils réfugiés ?",
+    "correct": "Grotte de Thawr",
+    "options": [
+      "Grotte de Thawr",
+      "Grotte de Hira",
+      "Mont Arafat"
+    ]
+  }
+]

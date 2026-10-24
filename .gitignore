@@ -1,0 +1,32 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# Outils
+.idea/
+.vscode/
+*.log
+
+# Android
+android/local.properties
+android/key.properties
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+*.jks
+*.keystore
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Le dossier legacy/ est une baseline figée : il est versionné volontairement
+# (gestion de configuration, §6.5) et ne doit pas être exclu.

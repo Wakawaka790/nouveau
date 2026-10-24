@@ -1,0 +1,29 @@
+[
+  {
+    "question": "En quelle année a eu lieu l'Hégire ?",
+    "correct": "622",
+    "options": [
+      "622",
+      "632",
+      "610"
+    ]
+  },
+  {
+    "question": "Quelle ville abrite la Kaaba ?",
+    "correct": "La Mecque",
+    "options": [
+      "La Mecque",
+      "Médine",
+      "Jérusalem"
+    ]
+  },
+  {
+    "question": "Quel calife a ordonné la première compilation du Coran ?",
+    "correct": "Abou Bakr",
+    "options": [
+      "Abou Bakr",
+      "Omar",
+      "Othman"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "question": "Combien de sourates compte le Coran ? (révision)",
+    "correct": "114",
+    "options": [
+      "114",
+      "112",
+      "120"
+    ]
+  },
+  {
+    "question": "Quelle est la première sourate du Coran ? (révision)",
+    "correct": "Al-Fatiha",
+    "options": [
+      "Al-Fatiha",
+      "Al-Baqara",
+      "An-Nas"
+    ]
+  }
+]

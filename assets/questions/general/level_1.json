@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Combien de piliers compte l'islam ?",
+    "correct": "5",
+    "options": [
+      "5",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "question": "Quel mois est celui du jeûne ?",
+    "correct": "Ramadan",
+    "options": [
+      "Ramadan",
+      "Chaoual",
+      "Rajab"
+    ]
+  },
+  {
+    "question": "Quelle est la direction de la prière ?",
+    "correct": "La Kaaba",
+    "options": [
+      "La Kaaba",
+      "Jérusalem",
+      "Médine"
+    ]
+  }
+]

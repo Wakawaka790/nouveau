@@ -1,0 +1,44 @@
+# Analyse statique — exigences REQ-073 / REQ-074 et Tableau A.19 (SIL 2).
+# Les violations sont bloquantes en intégration continue :
+#   flutter analyze --fatal-infos --fatal-warnings
+#
+# Jeu de règles volontairement restreint aux règles réellement tenues par le
+# code livré : une règle activée mais non respectée rendrait la CI rouge en
+# permanence et serait désactivée en pratique (voir STD-COD-001 §5).
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Ces trois défauts sont traités en erreurs : ils traduisent une perte de
+    # maîtrise du code (code mort, dépendance inutile, variable fantôme).
+    dead_code: error
+    unused_import: error
+    unused_local_variable: error
+    # Les TODO sans ticket sont interdits (RC-06).
+    todo: warning
+  exclude:
+    - legacy/**
+    - build/**
+    - "**/*.g.dart"
+
+linter:
+  rules:
+    - always_declare_return_types      # RC-01
+    - avoid_dynamic_calls              # RC-07
+    - avoid_print                      # RC-14
+    - avoid_relative_lib_imports
+    - avoid_unused_constructor_parameters
+    - directives_ordering              # RC-05
+    - no_adjacent_strings_in_list
+    - only_throw_errors                # RC-13
+    - prefer_const_declarations
+    - prefer_single_quotes
+    - test_types_in_equals
+    - throw_in_finally
+    - unawaited_futures                # RC-19
+    - use_super_parameters
+    - sort_child_properties_last

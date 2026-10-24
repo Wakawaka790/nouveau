@@ -1,0 +1,110 @@
+name: Intégration continue (NF EN 50128 — SIL 2)
+
+# Chaque étape correspond à une exigence du dossier :
+#   contenu     -> APP-DATA-001 / Tableau A.11
+#   analyse     -> RAP-VER-001 §4 / Tableau A.19 (analyse statique, HR à SIL 2)
+#   test        -> SPEC-TESTS-001 / Tableau A.21 (couverture, HR)
+#   reproductible -> REQ-079 (aucune réécriture de la source)
+
+on:
+  push:
+    branches: [main, 'arena/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_VERSION: '3.29.2'
+
+jobs:
+  qualite:
+    name: Analyse, tests et couverture
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Vérifier les données d'application (sans SDK Dart)
+        run: python3 tool/validate_content.py --baseline docs/content_baseline.json
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Résoudre les dépendances (sans modifier la source)
+        run: |
+          set -euo pipefail
+          cp pubspec.yaml /tmp/pubspec.yaml.avant
+          flutter pub get
+          if ! diff -q pubspec.yaml /tmp/pubspec.yaml.avant; then
+            echo "::error::pubspec.yaml a été modifié pendant la résolution (REQ-079)"
+            exit 1
+          fi
+          if ! git diff --quiet pubspec.lock 2>/dev/null; then
+            echo "::warning::pubspec.lock a évolué — à committer"
+          fi
+
+      - name: Analyse statique (bloquante)
+        run: flutter analyze --fatal-infos --fatal-warnings
+
+      - name: Vérifier le formatage
+        run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Tests unitaires, composants et de widgets
+        run: flutter test --coverage --reporter expanded
+
+      - name: Exiger une couverture de 100 % sur le domaine
+        run: python3 tool/check_coverage.py coverage/lcov.info
+
+      - name: Archiver les preuves (rapports de tests et de vérification)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preuves-qualite-${{ github.run_number }}
+          path: |
+            coverage/lcov.info
+          if-no-files-found: warn
+
+  apk:
+    name: Construction de l'APK (reproductible)
+    runs-on: ubuntu-latest
+    needs: qualite
+    timeout-minutes: 45
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Résoudre les dépendances
+        run: flutter pub get
+
+      - name: Construire l'APK de release
+        run: flutter build apk --release
+
+      - name: Publier l'APK comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-release-build${{ github.run_number }}
+          path: build/app/outputs/flutter-apk/app-release.apk

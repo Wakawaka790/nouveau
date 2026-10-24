@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Que signifie « Tawhid » ?",
+    "correct": "Unicité de Dieu",
+    "options": [
+      "Unicité de Dieu",
+      "Prière",
+      "Jeûne"
+    ]
+  },
+  {
+    "question": "Que signifie « Sunna » ?",
+    "correct": "Tradition prophétique",
+    "options": [
+      "Tradition prophétique",
+      "Consensus",
+      "Effort"
+    ]
+  },
+  {
+    "question": "Que signifie « Ijma » ?",
+    "correct": "Consensus des savants",
+    "options": [
+      "Consensus des savants",
+      "Analogie",
+      "Tradition"
+    ]
+  }
+]

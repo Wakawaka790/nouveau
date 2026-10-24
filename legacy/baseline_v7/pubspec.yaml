@@ -1,0 +1,67 @@
+name: quiz_game7
+description: A new Flutter project.
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Autres dépendances utiles à ton projet
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.2
+  audioplayers: ^6.4.0
+
+dev_dependencies:
+    flutter_test:
+      sdk: flutter
+    flutter_lints: ^3.0.1
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/logo.png
+    - assets/questions/
+    - assets/images/
+    - assets/questions/coran/levels.json
+    - assets/questions/sira/levels.json
+    - assets/questions/arabe/levels.json 
+    - assets/questions/histoire/levels.json  
+    - assets/questions/sahaba/levels.json
+    - assets/questions/hijra/levels.json
+    - assets/questions/terme/levels.json
+    - assets/questions/general/levels.json
+    - assets/questions/coran/level_1.json
+    - assets/questions/coran/level_2.json
+    - assets/questions/coran/level_3.json
+    - assets/questions/coran/level_4.json
+    - assets/questions/sira/level_1.json
+    - assets/questions/sira/level_2.json
+    - assets/questions/sira/level_3.json
+    - assets/questions/arabe/level_1.json
+    - assets/questions/arabe/level_3.json
+    - assets/questions/arabe/level_3.json
+    - assets/questions/histoire/level_1.json
+    - assets/questions/sahaba/level_1.json
+    - assets/questions/sahaba/level_2.json
+    - assets/questions/sahaba/level_3.json
+    - assets/questions/hijra/level_1.json
+    - assets/questions/terme/level_1.json
+    - assets/questions/terme/level_2.json
+    - assets/questions/terme/level_3.json
+    - assets/questions/terme/level_4.json
+    - assets/questions/terme/level_5.json
+    - assets/questions/terme/level_6.json
+    - assets/questions/general/level_1.json
+    - assets/questions/general/level_1.json
+    - assets/questions/general/level_1.json
+    - assets/questions/general/level_2.json
+    - assets/questions/general/level_3.json
+    - assets/questions/general/level_4.json
+    - assets/questions/general/level_5.json
+    - assets/sounds/correct.mp3
+    - assets/sounds/wrong.mp3
+    - assets/backgrounds/bg1.png
+    - assets/backgrounds/bg2.png
+    - assets/backgrounds/bg3.jpeg 

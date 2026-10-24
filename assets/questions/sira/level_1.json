@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Dans quelle grotte le Prophète a-t-il reçu la première révélation ?",
+    "correct": "Grotte de Hira",
+    "options": [
+      "Grotte de Hira",
+      "Grotte de Thawr",
+      "Mont Uhud"
+    ]
+  },
+  {
+    "question": "Quel est le nom de la première épouse du Prophète ?",
+    "correct": "Khadija",
+    "options": [
+      "Khadija",
+      "Aïcha",
+      "Fatima"
+    ]
+  },
+  {
+    "question": "En quelle année de l'Hégire a eu lieu la bataille de Badr ?",
+    "correct": "2",
+    "options": [
+      "2",
+      "1",
+      "3"
+    ]
+  }
+]

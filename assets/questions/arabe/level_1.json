@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Quel est le pluriel de « كتاب » (livre) ?",
+    "correct": "كتب",
+    "options": [
+      "كتب",
+      "كتاب",
+      "كاتب"
+    ]
+  },
+  {
+    "question": "Que signifie « مدرسة » ?",
+    "correct": "École",
+    "options": [
+      "École",
+      "Maison",
+      "Mosquée"
+    ]
+  },
+  {
+    "question": "Quel article défini correspond à « soleil » en arabe ?",
+    "correct": "ال",
+    "options": [
+      "ال",
+      "و",
+      "ب"
+    ]
+  }
+]

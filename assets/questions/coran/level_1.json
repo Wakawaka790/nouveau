@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Combien de sourates compte le Coran ?",
+    "correct": "114",
+    "options": [
+      "114",
+      "112",
+      "120"
+    ]
+  },
+  {
+    "question": "Quelle est la première sourate du Coran ?",
+    "correct": "Al-Fatiha",
+    "options": [
+      "Al-Fatiha",
+      "Al-Baqara",
+      "An-Nas"
+    ]
+  },
+  {
+    "question": "Quelle sourate est appelée « la mère du Coran » ?",
+    "correct": "Al-Fatiha",
+    "options": [
+      "Al-Fatiha",
+      "Ya-Sin",
+      "Al-Kahf"
+    ]
+  }
+]

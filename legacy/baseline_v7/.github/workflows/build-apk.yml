@@ -1,0 +1,209 @@
+name: Construire l'APK
+
+# Se lance automatiquement dès qu'un code est poussé sur main,
+# ou manuellement depuis l'onglet « Actions » (bouton « Run workflow »).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      flutter_version:
+        description: "Version de Flutter à utiliser"
+        required: false
+        default: "3.29.2"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apk-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_VERSION: ${{ inputs.flutter_version || '3.29.2' }}
+  # audioplayers (utilisé par le projet) exige au moins l'API 23.
+  MIN_SDK: "23"
+
+jobs:
+  apk:
+    name: Compilation de l'APK Android
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Préparer le projet (détection, pubspec, assets)
+        id: prepare
+        run: python3 .github/scripts/prepare_project.py
+
+      - name: Installer Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Installer Flutter ${{ env.FLUTTER_VERSION }}
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Configurer la plateforme Android
+        shell: bash
+        env:
+          ROOT: ${{ steps.prepare.outputs.project_root }}
+          PROJECT_NAME: ${{ steps.prepare.outputs.project_name }}
+        run: |
+          set -euo pipefail
+          cd "$ROOT"
+
+          if [ -d android ]; then
+            echo "dossier android/ déjà présent : conservé tel quel."
+          else
+            echo "::notice::dossier android/ absent : génération via 'flutter create'."
+            flutter create --platforms=android --project-name "$PROJECT_NAME" --org com.example .
+          fi
+
+          # Remonte minSdk si les plugins l'exigent (jamais vers le bas).
+          python3 "$GITHUB_WORKSPACE/.github/scripts/fix_android_config.py" --min-sdk "$MIN_SDK"
+
+      - name: Résoudre les dépendances
+        shell: bash
+        env:
+          ROOT: ${{ steps.prepare.outputs.project_root }}
+        run: |
+          set -uo pipefail
+          cd "$ROOT"
+
+          if flutter pub get; then
+            echo "Dépendances résolues (pubspec.lock respecté)."
+            exit 0
+          fi
+
+          echo "::warning::pubspec.lock inutilisable — nouvelle résolution des dépendances (versions plus récentes)."
+          rm -f pubspec.lock
+          flutter pub get
+
+          # Des versions plus récentes des plugins peuvent exiger un SDK plus haut. 
+          python3 "$GITHUB_WORKSPACE/.github/scripts/fix_android_config.py" --min-sdk "$MIN_SDK" --compile-sdk 36
+
+          SDKMANAGER="$(command -v sdkmanager || true)"
+          if [ -z "$SDKMANAGER" ] && [ -n "${ANDROID_SDK_ROOT:-}" ]; then
+            SDKMANAGER="$(ls "$ANDROID_SDK_ROOT"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | head -1 || true)"
+          fi
+          if [ -n "$SDKMANAGER" ]; then
+            yes | "$SDKMANAGER" --install "platforms;android-36" >/dev/null 2>&1 || true
+          fi
+
+      - name: Compiler l'APK
+        id: build
+        shell: bash
+        env:
+          ROOT: ${{ steps.prepare.outputs.project_root }}
+        run: |
+          set -uo pipefail
+          cd "$ROOT"
+
+          if flutter build apk --release; then
+            echo "mode=release" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::La compilation en mode release a échoué. Nouvelle tentative en mode debug (APK installable mais non optimisé) — voir la cause exacte dans le journal ci-dessus."
+            flutter build apk --debug
+            echo "mode=debug" >> "$GITHUB_OUTPUT"
+          fi
+
+          ls -lh build/app/outputs/flutter-apk/ ./*/build/app/outputs/flutter-apk/ 2>/dev/null || true
+
+      - name: Publier l'APK dans les Releases
+        if: success()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ROOT: ${{ steps.prepare.outputs.project_root }}
+          PROJECT_NAME: ${{ steps.prepare.outputs.project_name }}
+          APP_NAME: ${{ steps.prepare.outputs.app_name }}
+          MODE: ${{ steps.build.outputs.mode }}
+        run: |
+          set -euo pipefail
+
+          APK_DIR="$ROOT/build/app/outputs/flutter-apk"
+          APK_FILE="$(ls "$APK_DIR"/app-release.apk "$APK_DIR"/app-debug.apk 2>/dev/null | head -1)"
+          if [ -z "$APK_FILE" ]; then
+            echo "::error::Aucun APK produit."
+            exit 1
+          fi
+
+          OUT="$(pwd)/${PROJECT_NAME}-build${GITHUB_RUN_NUMBER}.apk"
+          cp "$APK_FILE" "$OUT"
+          ls -lh "$OUT"
+
+          TAG="apk-latest"
+          gh release delete "$TAG" --yes --cleanup-tag --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "APK — build #${GITHUB_RUN_NUMBER} (${MODE})" \
+            --notes "APK de « ${APP_NAME} » compilé automatiquement par GitHub Actions.
+
+          - Commit : \`${GITHUB_SHA}\`
+          - Branche : \`${GITHUB_REF_NAME}\`
+          - Mode de compilation : **${MODE}**
+          - Fichier : \`$(basename "$OUT")\`" \
+            --latest \
+            "$OUT"
+
+          echo "::notice::APK disponible dans l'onglet Releases (tag ${TAG})."
+
+      - name: Enregistrer l'APK comme artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-${{ steps.build.outputs.mode }}-build${{ github.run_number }}
+          path: ${{ steps.prepare.outputs.project_root }}/build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Récapitulatif
+        if: success()
+        shell: bash
+        env:
+          MODE: ${{ steps.build.outputs.mode }}
+          ROOT: ${{ steps.prepare.outputs.project_root }}
+        run: |
+          {
+            echo "## \u{2705} APK généré"
+            echo ""
+            echo "| | |"
+            echo "|---|---|" 
+            echo "| Projet | \`${ROOT#${GITHUB_WORKSPACE}/}\` |"
+            echo "| Mode | \`${MODE}\` |"
+            echo "| Flutter | \`${FLUTTER_VERSION}\` |"
+            echo "| Build | #${GITHUB_RUN_NUMBER} |"
+            echo ""
+            echo "### Où récupérer l'APK"
+            echo ""
+            echo "1. **Onglet Releases** de ce dépôt, release \`apk-latest\` → téléchargement direct, ou"
+            echo "2. **Bas de cette page**, section *Artifacts* → \`apk-${MODE}-build${GITHUB_RUN_NUMBER}\`."
+            echo ""
+            echo "Installation sur le téléphone : autoriser « Installer des applications inconnues » pour le navigateur ou le gestionnaire de fichiers, puis ouvrir le fichier .apk."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Expliquer l'échec
+        if: failure()
+        shell: bash
+        run: |
+          {
+            echo "## \u{274C} La compilation a échoué"
+            echo ""
+            echo "Ouvrez l'étape en rouge ci-dessus : la cause exacte y est indiquée."
+            echo ""
+            echo "Causes les plus fréquentes :"
+            echo ""
+            echo "- **Code source absent** : le dépôt ne contient pas encore \`lib/\` et \`assets/\`."
+            echo "- **Erreur de code Dart** : le message indique le fichier et la ligne concernés."
+            echo "- **Asset manquant** : un fichier listé dans \`pubspec.yaml\` n'existe pas."
+            echo "- **Version de Flutter** : relancez le workflow avec une autre version via *Run workflow*."
+          } >> "$GITHUB_STEP_SUMMARY" 

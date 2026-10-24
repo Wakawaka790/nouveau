@@ -1,0 +1,20 @@
+[
+  {
+    "question": "En quelle année a eu lieu l'Hégire ? (révision)",
+    "correct": "622",
+    "options": [
+      "622",
+      "632",
+      "610"
+    ]
+  },
+  {
+    "question": "Quelle ville abrite la Kaaba ? (révision)",
+    "correct": "La Mecque",
+    "options": [
+      "La Mecque",
+      "Médine",
+      "Jérusalem"
+    ]
+  }
+]

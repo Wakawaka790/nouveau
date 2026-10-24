@@ -1,0 +1,20 @@
+[
+  {
+    "question": "Combien de piliers compte l'islam ? (révision)",
+    "correct": "5",
+    "options": [
+      "5",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "question": "Quel mois est celui du jeûne ? (révision)",
+    "correct": "Ramadan",
+    "options": [
+      "Ramadan",
+      "Chaoual",
+      "Rajab"
+    ]
+  }
+]

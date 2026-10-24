@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Quel compagnon est surnommé « le véridique » ?",
+    "correct": "Abou Bakr",
+    "options": [
+      "Abou Bakr",
+      "Omar",
+      "Ali"
+    ]
+  },
+  {
+    "question": "Quel compagnon fut le premier muezzin de l'islam ?",
+    "correct": "Bilal",
+    "options": [
+      "Bilal",
+      "Salman",
+      "Ammar"
+    ]
+  },
+  {
+    "question": "Quel compagnon est connu pour sa science du hadith ?",
+    "correct": "Abou Hourayra",
+    "options": [
+      "Abou Hourayra",
+      "Khalid",
+      "Zubayr"
+    ]
+  }
+]
