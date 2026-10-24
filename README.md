@@ -8,7 +8,7 @@ par question, sons de retour et score total sauvegardé sur l'appareil.
 > puis corrigé — voir **[CORRECTIONS.md](CORRECTIONS.md)** pour la liste
 > détaillée des 23 corrections et des fichiers recréés, ainsi que
 > **[ANALYSE_FONCTIONNELLE.md](ANALYSE_FONCTIONNELLE.md)** pour l’analyse
-> fonctionnelle complète et **[FONCTIONS.md](FONCTIONS.md)** pour
+> fonctionnelle complète ([version PDF](ANALYSE_FONCTIONNELLE.pdf)) et **[FONCTIONS.md](FONCTIONS.md)** pour
 > l’inventaire des fonctions du code.
 
 ## Lancer l'application
