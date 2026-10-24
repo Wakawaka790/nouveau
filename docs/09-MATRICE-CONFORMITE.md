@@ -149,12 +149,14 @@ validation, système qualité). Les 13 non-conformités sont toutes enregistrée
 
 ## 9. Déclaration finale
 
-Le présent dossier **démontre la conformité aux exigences techniques SIL 2** de
-la NF EN 50128:2011 (spécifications, architecture, conception, code, règles de
+Le présent dossier **documente la mise en œuvre** des exigences techniques SIL 2
+de la NF EN 50128:2011 (spécifications, architecture, conception, code, règles de
 codage, techniques des Tableaux A.2 à A.7, A.11, A.12, A.19, A.21) pour le
-périmètre décrit en SRS-001 §1.2.
+périmètre décrit en SRS-001 §1.2. Les activités sont **prévues, outillées et
+traçables** ; elles ne sont pas toutes **exécutées**, et c'est cette différence
+qui interdit aujourd'hui de parler de conformité démontrée.
 
-Il **ne démontre pas** :
+Le dossier **ne démontre pas** :
 
 1. que SIL 2 est le niveau approprié au produit (C-01) ;
 2. l'indépendance de la vérification et de la validation (C-05) ;

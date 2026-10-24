@@ -856,24 +856,24 @@ du tableau A.4.
 **Combinaison A.5 retenue** (niveaux 1-2) : 5 (traçabilité) + 8 (tests
 fonctionnels) → conforme à l'exigence 2 du tableau A.5.
 
-### 14.4 Règles de codage (Dart) — projet de norme
+### 14.4 Règles de codage (Dart)
 
-| Règle | Contenu | Réf. A.12 |
-|---|---|---|
-| RC-01 | `dart format` obligatoire, largeur 80 ; `dart analyze --fatal-infos` sans avertissement | #1, #2 |
-| RC-02 | Interdiction de `dynamic` hors décodage JSON immédiatement validé | #1 |
-| RC-03 | Aucune récursivité (remplacer par itération bornée) | #6 |
-| RC-04 | Aucune variable globale mutable ; `static` réservé aux constantes | #10 |
-| RC-05 | Fonction ≤ 30 lignes, ≤ 4 paramètres, complexité cyclomatique ≤ 10 | #8, #9 |
-| RC-06 | Un seul `return` par fonction métier, sorties en fin de fonction | #9 |
-| RC-07 | `assert` = documentation d'invariant, **jamais** validation d'entrée runtime (exceptions typées) | A.3 #5 |
-| RC-08 | `final` par défaut ; classes `@immutable` ; collections `unmodifiable` | A.4 #5 |
-| RC-09 | Toute erreur traverse la frontière sous forme de `DomainError`/`InfrastructureError` ; jamais de `toString()` vers l'IHM | A.3 #2 |
-| RC-10 | Aucune I/O dans `domain/` ; ports injectés | A.4 #4 |
-| RC-11 | `switch` exhaustif sur les types scellés, sans `default` masquant | A.3 #2 |
-| RC-12 | Journalisation structurée (niveau, code, contexte), sans donnée personnelle | A.3 #2 |
-| RC-13 | Pas de `print` ; pas de `TODO` sans ticket ; pas de code commenté | #1 |
-| RC-14 | Tout fichier `pubspec`/asset justifié ; aucune dépendance non utilisée | Tableau A.15 |
+Le projet de règles établi lors de l'analyse (14 règles) a été **formalisé et
+étendu** dans la norme de codage du projet : `16-STD-COD-001`, règles
+**RC-01 à RC-20**.
+
+| Point | Décision |
+|---|---|
+| Référence unique | **`STD-COD-001` v1.0** est la seule source normative des règles de codage |
+| Numérotation | RC-01..RC-20 ; tout renvoi `RC-xx` d'un autre document pointe vers STD-COD-001 |
+| Justification du langage | STD-COD-001 §2 (Tableau A.15, NOTE 2 → critères D.54) |
+| Contrôle | `flutter analyze` + `test/architecture_test.dart` (TC-ARCH-01..06) + revue LC-03 |
+
+Les 14 règles initialement esquissées ici sont couvertes : formatage et analyse
+(RC-01, RC-02), `dynamic` (RC-07), récursivité (RC-16), état global (RC-10),
+taille et complexité (RC-04), `assert` (RC-12), immuabilité (RC-09), erreurs
+typées (RC-13), absence d'I/O dans le domaine (RC-15), `switch` exhaustif
+(RC-11), journalisation (RC-14), code mort et `TODO` (RC-06).
 
 ### 14.5 Livrables documentaires (Tableau A.1)
 
@@ -924,7 +924,7 @@ processus dédié (§8.4.1), une spécification des exigences de l'application
 |---|---|---|
 | **E1 — Gel et configuration** | Baseline `legacy/` figée, inventaire des assets réels, plan AQ et plan de configuration, validation des outils | Baseline étiquetée ; écarts d'assets (ANO-19) tranchés |
 | **E2 — Spécifications** | SRS (EF/ENF/RG formalisées, sans ambiguïté), spécification des tests d'ensemble, exigences de l'application (contenu) | 100 % des EF tracées ; ANO-15 tranchée |
-| **E3 — Architecture et interfaces** | SW-ARCH, spécifications d'interface (10 IF avec pré/post/limites), conception détaillée, règles de codage RC-01..RC-14 | Revue d'architecture sans réserve |
+| **E3 — Architecture et interfaces** | SW-ARCH, spécifications d'interface (10 IF avec pré/post/limites), conception détaillée, règles de codage RC-01..RC-20 (STD-COD-001) | Revue d'architecture sans réserve |
 | **E4 — Domaine** | `Question`, value objects, `ScoringRules`, `UnlockPolicy`, `LevelCatalogRules`, erreurs typées | Tests unitaires verts, 100 % décisions, aucune dépendance Flutter |
 | **E5 — Infrastructure** | Dépôts (assets, préférences versionnées + CRC32), horloge injectée, aléa graine, journalisation | Tests avec doublures ; simulation de panne d'écriture |
 | **E6 — Présentation** | View models à états scellés, 5 écrans sans logique, accessibilité, i18n | Tests de widgets ; navigation complète |

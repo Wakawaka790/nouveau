@@ -94,8 +94,8 @@ dérogation D-01).
 
 | Contrôle | Exigence | Résultat | Preuve |
 |---|---|---|---|
-| Pas d'`assert` utilisé comme validation d'entrée (ANO-12 de la v7) | RC-07 / A.3 #5 | **Conforme** — aucun `assert(` dans `lib/` (TC-ARCH-05) | `test/architecture_test.dart` |
-| Aucune sortie console hors port de journalisation | RC-13 | **Conforme** | TC-ARCH-05 |
+| Pas d'`assert` utilisé comme validation d'entrée (ANO-12 de la v7) | RC-12 / A.3 #5 | **Conforme** — aucun `assert(` dans `lib/` (TC-ARCH-05) | `test/architecture_test.dart` |
+| Aucune sortie console hors port de journalisation | RC-14 | **Conforme** | TC-ARCH-05 |
 | Aucune I/O dans le domaine | REQ-074 | **Conforme** | TC-ARCH-01 |
 | Erreurs typées à toutes les frontières | REQ-050 | **Conforme** — hiérarchie scellée, aucun `String` levé | DD-001 §2.8 |
 | Aucun message technique affiché | REQ-051 | **Conforme** — `AppStrings.forErrorCode` + repli générique | PRS-06 |
