@@ -1,0 +1,32 @@
+[
+  {
+    "question": "L'Hégire désigne la migration du Prophète ﷺ de La Mecque vers…",
+    "correct": "Médine",
+    "options": [
+      "Médine",
+      "Taïf",
+      "L'Abyssinie",
+      "Damas"
+    ]
+  },
+  {
+    "question": "Qui accompagnait le Prophète ﷺ pendant le voyage de l'Hégire ?",
+    "correct": "Aboû Bakr",
+    "options": [
+      "Aboû Bakr",
+      "'Alî",
+      "Hamza",
+      "'Oumar"
+    ]
+  },
+  {
+    "question": "Comment s'appelait Médine avant l'arrivée du Prophète ﷺ ?",
+    "correct": "Yathrib",
+    "options": [
+      "Yathrib",
+      "Badr",
+      "Khaybar",
+      "Taboûk"
+    ]
+  }
+]

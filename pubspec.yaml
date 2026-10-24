@@ -1,0 +1,48 @@
+name: quiz_game7
+description: "Quiz éducatif — application Flutter (arabe, sira, coran, histoire, sahaba, hijra, termes, général)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  # Corrigé : l'ancienne contrainte « >=2.17.0 <3.0.0 » interdisait Dart 3,
+  # alors que flutter_lints 3 et audioplayers 6 l'exigent : « flutter pub get »
+  # échouait donc sur tout Flutter récent.
+  sdk: ">=3.0.0 <4.0.0"
+  # Color.withValues (utilisé dans level_map_screen.dart) exige Flutter 3.27+.
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.2
+  audioplayers: ^6.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+
+  # Corrigé : un dossier par thème au lieu de la longue liste de fichiers.
+  # Tous les « levels.json » et « level_N.json » du dossier sont inclus
+  # automatiquement : plus de doublons (general/level_1.json était listé
+  # 3 fois, arabe/level_3.json 2 fois) ni d'oubli (arabe/level_2.json
+  # manquait, le niveau 2 d'arabe ne pouvait pas se charger).
+  # Les entrées « assets/questions/ » et « assets/images/ » ont été retirées :
+  # un dossier déclaré sans fichier direct fait échouer le build Flutter
+  # (« No file or variants found for asset ») et n'inclut pas ses sous-dossiers.
+  assets:
+    - assets/logo.png
+    - assets/questions/arabe/
+    - assets/questions/coran/
+    - assets/questions/general/
+    - assets/questions/hijra/
+    - assets/questions/histoire/
+    - assets/questions/sahaba/
+    - assets/questions/sira/
+    - assets/questions/terme/
+    - assets/backgrounds/
+    - assets/sounds/

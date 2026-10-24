@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Dans quelle ville le Prophète Mouhammad ﷺ est-il né ?",
+    "correct": "La Mecque",
+    "options": [
+      "La Mecque",
+      "Médine",
+      "Taïf",
+      "Jérusalem"
+    ]
+  },
+  {
+    "question": "Dans quelle grotte a-t-il reçu la première révélation ?",
+    "correct": "La grotte de Hirâ'",
+    "options": [
+      "La grotte de Hirâ'",
+      "La grotte de Thawr",
+      "La grotte d'Ouhoud",
+      "La grotte de Safâ"
+    ]
+  },
+  {
+    "question": "Quel ange a transmis la révélation au Prophète ﷺ ?",
+    "correct": "Jibrîl (Gabriel)",
+    "options": [
+      "Jibrîl (Gabriel)",
+      "Mîkâ'îl (Michel)",
+      "Isrâfîl",
+      "Mâlik"
+    ]
+  }
+]

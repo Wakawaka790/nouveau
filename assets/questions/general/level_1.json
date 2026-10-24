@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Quelle est la capitale de la France ?",
+    "correct": "Paris",
+    "options": [
+      "Paris",
+      "Lyon",
+      "Marseille",
+      "Lille"
+    ]
+  },
+  {
+    "question": "Quel est le plus grand océan du monde ?",
+    "correct": "L'océan Pacifique",
+    "options": [
+      "L'océan Pacifique",
+      "L'océan Atlantique",
+      "L'océan Indien",
+      "L'océan Arctique"
+    ]
+  },
+  {
+    "question": "Combien font 7 × 8 ?",
+    "correct": "56",
+    "options": [
+      "56",
+      "54",
+      "63",
+      "48"
+    ]
+  }
+]

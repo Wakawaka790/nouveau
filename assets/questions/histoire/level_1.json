@@ -1,0 +1,32 @@
+[
+  {
+    "question": "En quelle année de l'ère commune a eu lieu l'Hégire (an 1 de l'Hégire) ?",
+    "correct": "622",
+    "options": [
+      "622",
+      "570",
+      "632",
+      "610"
+    ]
+  },
+  {
+    "question": "Dans quel pays se trouve la grande pyramide de Khéops ?",
+    "correct": "En Égypte",
+    "options": [
+      "En Égypte",
+      "Au Mexique",
+      "En Grèce",
+      "En Irak"
+    ]
+  },
+  {
+    "question": "Qui a été le premier homme à marcher sur la Lune, en 1969 ?",
+    "correct": "Neil Armstrong",
+    "options": [
+      "Neil Armstrong",
+      "Youri Gagarine",
+      "Buzz Aldrin",
+      "Thomas Pesquet"
+    ]
+  }
+]

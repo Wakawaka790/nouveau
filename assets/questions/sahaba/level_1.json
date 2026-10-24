@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Qui fut le premier calife après le décès du Prophète ﷺ ?",
+    "correct": "Aboû Bakr",
+    "options": [
+      "Aboû Bakr",
+      "'Oumar",
+      "'Outhmân",
+      "'Alî"
+    ]
+  },
+  {
+    "question": "Qui fut le premier muezzin de l'islam ?",
+    "correct": "Bilâl ibn Rabâh",
+    "options": [
+      "Bilâl ibn Rabâh",
+      "Zayd ibn Hâritha",
+      "Salmân le Perse",
+      "Hamza"
+    ]
+  },
+  {
+    "question": "Quel compagnon est surnommé « Sayf Allâh » (l'épée de Dieu) ?",
+    "correct": "Khâlid ibn al-Walîd",
+    "options": [
+      "Khâlid ibn al-Walîd",
+      "Sa'd ibn Abî Waqqâs",
+      "Talha",
+      "Az-Zoubayr"
+    ]
+  }
+]
