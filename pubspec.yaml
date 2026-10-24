@@ -31,11 +31,15 @@ flutter:
   # automatiquement : plus de doublons (general/level_1.json était listé
   # 3 fois, arabe/level_3.json 2 fois) ni d'oubli (arabe/level_2.json
   # manquait, le niveau 2 d'arabe ne pouvait pas se charger).
-  # Les entrées « assets/questions/ » et « assets/images/ » ont été retirées :
-  # un dossier déclaré sans fichier direct fait échouer le build Flutter
-  # (« No file or variants found for asset ») et n'inclut pas ses sous-dossiers.
+  # L'entrée « assets/questions/ » a été retirée : un dossier déclaré sans
+  # fichier direct fait échouer le build Flutter (« No file or variants
+  # found for asset ») et n'inclut pas ses sous-dossiers. À l'inverse,
+  # « assets/images/ » ci-dessous contient directement les images des thèmes.
   assets:
     - assets/logo.png
+    # Images de fond des cartes de thèmes (une par catégorie, voir
+    # QuizCategory.imagePath dans lib/models/quiz_category.dart).
+    - assets/images/
     - assets/questions/arabe/
     - assets/questions/coran/
     - assets/questions/general/
