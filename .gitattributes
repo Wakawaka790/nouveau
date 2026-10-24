@@ -1,0 +1,5 @@
+# Le lanceur Windows de Gradle exige des fins de ligne CRLF (cmd.exe
+# peut échouer sur les étiquettes « goto » avec des fins LF seules),
+# le lanceur Unix exige des fins de ligne LF.
+android/gradlew.bat text eol=crlf
+android/gradlew text eol=lf

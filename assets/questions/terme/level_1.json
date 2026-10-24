@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Que signifie le mot « salât » ?",
+    "correct": "La prière",
+    "options": [
+      "La prière",
+      "Le jeûne",
+      "L'aumône",
+      "Le pèlerinage"
+    ]
+  },
+  {
+    "question": "Que signifie le mot « sawm » ?",
+    "correct": "Le jeûne",
+    "options": [
+      "Le jeûne",
+      "La prière",
+      "L'ablution",
+      "La fête"
+    ]
+  },
+  {
+    "question": "Que signifie le mot « zakât » ?",
+    "correct": "L'aumône légale",
+    "options": [
+      "L'aumône légale",
+      "Le pèlerinage",
+      "La profession de foi",
+      "Le jeûne"
+    ]
+  }
+]

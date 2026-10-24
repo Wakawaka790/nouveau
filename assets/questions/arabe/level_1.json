@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Que signifie « kitâb » (كتاب) en arabe ?",
+    "correct": "Un livre",
+    "options": [
+      "Un livre",
+      "Une porte",
+      "Un stylo",
+      "Une maison"
+    ]
+  },
+  {
+    "question": "Que signifie « salâm » (سلام) ?",
+    "correct": "Paix",
+    "options": [
+      "Paix",
+      "Merci",
+      "Au revoir",
+      "Bonjour le matin"
+    ]
+  },
+  {
+    "question": "Comment dit-on « merci » en arabe ?",
+    "correct": "Choukrane (شكرا)",
+    "options": [
+      "Choukrane (شكرا)",
+      "Ahlan (أهلا)",
+      "Sabah (صباح)",
+      "Layl (ليل)"
+    ]
+  }
+]
