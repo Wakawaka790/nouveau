@@ -23,8 +23,8 @@ dossier d'assurance qualité et dossier de conformité.
 | Chemin | Contenu |
 |---|---|
 | `docs/` | **Dossier documentaire complet** (16 documents numérotés + sommaire) — commencer par `docs/README.md` |
-| `lib/` | Code applicatif : 48 fichiers, 3 034 lignes, 4 couches (domaine, application, infrastructure, présentation) |
-| `test/` | 106 cas de test automatisés, dont 9 contrôles d'architecture |
+| `lib/` | Code applicatif : 48 fichiers, 3 037 lignes, 4 couches (domaine, application, infrastructure, présentation) |
+| `test/` | 144 cas de test automatisés, dont 9 contrôles d'architecture |
 | `assets/` | Contenu pédagogique : 8 thèmes, 40 questions, 3 fonds animés |
 | `tool/` | `validate_content.py` (contrôle du contenu), `check_coverage.py` (seuils de couverture) |
 | `.github/workflows/ci.yml` | Chaîne d'intégration continue bloquante (6 étapes) |
@@ -42,7 +42,7 @@ dossier d'assurance qualité et dossier de conformité.
 | Conception détaillée | invariants, algorithmes, cas limites | `04-DD-001` |
 | Codage | norme RC-01..RC-20, code livré | `16-STD-COD-001`, `lib/` |
 | Vérification | listes de contrôle, observations V-01..V-08 | `07-RAP-VER-001` |
-| Tests | 114 cas spécifiés, 106 automatisés | `05-SPEC-TESTS-001`, `06-RAP-TESTS-001` |
+| Tests | 114 cas spécifiés, 144 automatisés | `05-SPEC-TESTS-001`, `06-RAP-TESTS-001` |
 | Intégration / ensemble | scénarios sur appareil | `05` §6, `08-RAP-VAL-001` |
 | Validation | 10 scénarios VAL-01..10 | `08-RAP-VAL-001` |
 | Assurance qualité | SQAP, rôles, actions A-01..A-10 | `12-SQAP-001` |
@@ -108,7 +108,7 @@ toute étape en échec bloque la fusion.
 | Analyse fonctionnelle | ✅ livrée et stable |
 | Dossier documentaire | ✅ complet (16 documents) |
 | Code | ✅ écrit, non compilé dans l'environnement de rédaction |
-| Tests | ✅ 106 cas écrits — ⛔ **0 exécuté** |
+| Tests | ✅ 144 cas écrits — ⛔ **0 exécuté** |
 | Couverture | ⛔ **non mesurée** |
 | Validation | ⛔ **non effectuée** (10 scénarios prêts) |
 | Projet Android | ⛔ **absent** (`flutter build` impossible en l'état) |

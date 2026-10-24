@@ -12,7 +12,6 @@ import 'state_codec.dart';
 ///  * encodage versionné + contrôle d'intégrité ;
 ///  * repli sur l'état par défaut en cas de corruption, sans exception ;
 ///  * écritures sérialisées par un verrou logique ;
-///  * écriture ignorée si l'état est inchangé ;
 ///  * migration des clés héritées v7, non destructive (REQ-015).
 final class PrefsStateRepository implements StateRepository {
   PrefsStateRepository({

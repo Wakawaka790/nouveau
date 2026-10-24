@@ -50,7 +50,7 @@ produit sans exigence de disponibilité ; à confirmer par le Chargé de validat
 |---|---|---|
 | Allocation complète des exigences aux composants | **Conforme** | ARCH-001 §8 |
 | Interfaces entièrement définies (7 rubriques) | **Conforme** — 10 interfaces | ARCH-001 §6 |
-| Décomposition en composants avec spécification | **Conforme** — 46 composants | ARCH-001 §3 |
+| Décomposition en composants avec spécification | **Conforme** — 45 composants | ARCH-001 §3 |
 | Équilibre taille/complexité (§7.3.4.15) | **Conforme** — max 197 lignes, 0 fichier > 200 | §4 ci-dessous |
 | Gestion des défauts équilibrée (§7.3.4.11) | **Conforme** — 6 niveaux D1..D6 | ARCH-001 §5.1 |
 | Techniques A.3 (SIL 2) | **Conforme** — 1, 4, 19, 22 (+ 2, 18) | ARCH-001 §5.2 |
@@ -73,7 +73,7 @@ automatisé rendent la régression **détectable en CI**.
 | 2 | Guide de style | **HR** | `dart format --set-exit-if-changed` | **Conforme** (contrôle CI) |
 | 3-4 | Pas d'objets / variables dynamiques | R | `strict-casts`, `avoid_dynamic_calls` ; `dynamic` absent hors `_readJson()` (retour `Object?`) | **Conforme** |
 | 5 | Pointeurs | R | Sans objet (Dart) | **N/A justifié** |
-| 6 | Récursivité limitée | R | Aucune fonction récursive (recherche manuelle sur 3 034 lignes — 48 fichiers) | **Conforme** |
+| 6 | Récursivité limitée | R | Aucune fonction récursive (recherche manuelle sur 3 037 lignes — 48 fichiers) | **Conforme** |
 | 7 | Pas de branchements inconditionnels | **HR** | Aucun `goto` ; `break`/`continue` uniquement dans `_migrateLegacy` (motivé) | **Conforme** |
 | 8 | Taille/complexité limitées | **HR** | Test TC-ARCH-04 : 0 fichier > 200 lignes ; fonction la plus longue : `build` de `ResultScreen` (81 lignes) | **Écart mineur** — voir V-03 |
 | 9 | Point d'entrée/sortie | R | `return` unique en fin de fonction métier | **Conforme** sur `domain`/`application` |
@@ -108,7 +108,7 @@ dérogation D-01).
 
 | Anomalie (AN-FON-001 §11) | Traitement | Vérification |
 |---|---|---|
-| ANO-01 Aucun test | **Corrigée** — 106 cas automatisés, CI bloquante | RAP-TESTS-001 |
+| ANO-01 Aucun test | **Corrigée** — 144 cas automatisés, CI bloquante | RAP-TESTS-001 |
 | ANO-02 Logique métier dans l'IHM | **Corrigée** — 4 couches, test d'architecture | TC-ARCH-01..03 |
 | ANO-03 Aucune injection de dépendance | **Corrigée** — 5 ports, racine de composition unique | ARCH-001 §3 |
 | ANO-04 Aléa non graine | **Corrigée** — `SeededRandomSource` | TC-APP-07 |

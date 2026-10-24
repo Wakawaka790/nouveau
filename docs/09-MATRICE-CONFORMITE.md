@@ -87,7 +87,7 @@ validation, système qualité). Les 13 non-conformités sont toutes enregistrée
 
 | Réf. | Exigence | SIL 2 | État | Preuve / motif |
 |---|---|---|---|---|
-| §7.4.4 | Techniques de réalisation (Tableau A.4) | requis | ✅ | 4 couches, 46 composants |
+| §7.4.4 | Techniques de réalisation (Tableau A.4) | requis | ✅ | 4 couches, 45 composants |
 | Tableau A.12 | Normes de codage | #2, #8, #10 **HR** ; #3, #4, #6, #9 R | ✅ | STD-COD-001, TC-ARCH-04/05 |
 | §7.5.4.2-7.5.4.4 | Code lisible, testable, sous contrôle de configuration | requis | ✅ | PLAN-CONF-001, RAP-VER-001 §4 |
 | §7.5.4.5-7 | Rapport de Tests de Composant | requis | 🟡 | RAP-TESTS-001 : spécifié, **non exécuté** (C-04) |

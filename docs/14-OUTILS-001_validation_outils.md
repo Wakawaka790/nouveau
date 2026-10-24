@@ -46,7 +46,7 @@ livré :
 | Compilateur Dart/Flutter | Version **figée** (`FLUTTER_VERSION: 3.29.2` dans la CI), `pubspec.lock` versionné, interdiction de mise à jour implicite (contrôle `diff`) |
 | `shared_preferences` | Isolation derrière le port `KeyValueStore` ; test de corruption et de panne d'écriture (TC-INF-17, 18) |
 | Gradle/AGP | Versions figées dans le projet Android ; contrôle de reproductibilité |
-| Scripts Python | Test d'injection : 3 défauts introduits volontairement, 3 défauts détectés (APP-DATA-001 §4.2) ; script de couverture vérifié sur un `lcov` de test |
+| Scripts Python | **Vérifiés le 24/10/2026** : `validate_content.py` — 3 défauts injectés (niveau déclaré sans fichier, option en double, bonne réponse absente des options) → 3 erreurs, code de sortie 1 ; aucun faux positif sur le contenu livré (0 erreur, 8 thèmes / 40 questions). `check_coverage.py` — 3 jeux d'essai `lcov` (conforme → 0, sous les seuils → 1, fichier absent → 1) |
 | Règles de lint | Liste explicite dans `analysis_options.yaml`, révisable, versionnée |
 
 ---
@@ -81,6 +81,8 @@ mesures de détection côté projet :
 | | |
 |---|---|
 | Outils identifiés | 9 |
+| Outils exécutés et vérifiés dans l'environnement de rédaction | 2 (`validate_content.py`, `check_coverage.py`) |
+| Outils non exécutables faute de SDK | 4 (Dart, Flutter, `flutter_test`, Gradle) |
 | Classés T1 | 3 (Dart, Flutter, Gradle) + 1 dépendance (`shared_preferences`) |
 | Mesures de maîtrise | §3, §4 |
 | Point ouvert | **C-10** : le projet Android n'étant pas encore généré/versionné, la chaîne Gradle ne peut pas être vérifiée en l'état |

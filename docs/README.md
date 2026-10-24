@@ -37,8 +37,8 @@ date, statut, référentiel normatif, niveau SIL, entrées, sorties couvertes
 | 02 | `SRS-001` | Spécification des exigences du logiciel | 1.0 | 314 | **58 exigences** (REQ-001..REQ-080, numérotation avec réserves), 10 interfaces (IF-01..IF-10), hypothèses H1..H8 |
 | 03 | `ARCH-001` | Spécification de l'architecture | 1.1 | 420 | 4 couches, **45 composants**, hiérarchie de dépendances, ADR-01..05, stratégie d'intégration |
 | 04 | `DD-001` | Spécification de la conception détaillée | 1.0 | 349 | Conception par composant : invariants, algorithmes, pré/post-conditions, cas limites |
-| 05 | `SPEC-TESTS-001` | Spécification des tests | 1.0 | 214 | **114 cas spécifiés** : TC-DOM, TC-INF, TC-APP, TC-INT, TC-SYS, TC-PRS, TC-ARCH |
-| 06 | `RAP-TESTS-001` | Rapport de tests | 1.0 | 137 | **106 cas automatisés** présents dans `test/`, **0 exécuté dans cet environnement** (SDK absent) ; couverture déclarée non mesurée |
+| 05 | `SPEC-TESTS-001` | Spécification des tests | 1.0 | 219 | **114 cas spécifiés** : TC-DOM, TC-INF, TC-APP, TC-INT, TC-SYS, TC-PRS, TC-ARCH |
+| 06 | `RAP-TESTS-001` | Rapport de tests | 1.0 | 164 | **144 cas automatisés** présents dans `test/`, **0 exécuté dans cet environnement** (SDK absent) ; couverture déclarée non mesurée |
 | 07 | `RAP-VER-001` | Rapport de vérification | 1.0 | 167 | Vérification par exigence et par technique (Tableaux A.3, A.4, A.12, A.19, A.21), observations V-01..V-08, dispositions ANO |
 | 08 | `RAP-VAL-001` | Plan et rapport de validation | 1.0 | 108 | 10 scénarios VAL-01..10 **non exécutés** ; verdict **NON VALIDÉ** |
 | 09 | `MATRICE-CONFORMITE` | Matrice de conformité SIL 2 | 1.0 | 174 | **86 exigences normatives** : 59 conformes, 12 partielles, 13 non conformes, 2 sans objet ; registre C-01..C-13 |
@@ -46,7 +46,7 @@ date, statut, référentiel normatif, niveau SIL, entrées, sorties couvertes
 | 11 | `APP-DATA-001` | Plan de préparation des données d'application | 1.0 | 163 | 8 thèmes, 40 questions, format, validation automatique, revue humaine obligatoire |
 | 12 | `SQAP-001` | Plan d'assurance qualité | 1.0 | 196 | Rôles (Tableau B.1), listes de contrôle LC-01..05, classes d'anomalies, actions A-01..A-10 |
 | 13 | `PLAN-CONF-001` | Plan de gestion de la configuration | 1.0 | 155 | Éléments de configuration EC-1..EC-6, baselines BL-0..BL-4, demandes de modification, convention de commit |
-| 14 | `OUTILS-001` | Validation des outils | 1.0 | 89 | Classification T1/T2/T3, mesures de maîtrise, outils écartés |
+| 14 | `OUTILS-001` | Validation des outils | 1.0 | 91 | Classification T1/T2/T3, mesures de maîtrise, outils écartés |
 | 15 | `MAINT-001` | Plan de maintenance | 1.0 | 111 | Types de maintenance, procédure, techniques du Tableau A.10, fin de vie |
 | 16 | `STD-COD-001` | Norme de codage Dart | 1.0 | 148 | Justification du langage (Tableau A.15/D.54), règles RC-01..RC-20, application automatique, LC-03 |
 
@@ -92,7 +92,7 @@ travail de refonte et de mise en conformité ; il ne peut devenir une preuve
 qu'après :
 
 1. **exécution effective** de la chaîne d'intégration continue (analyse
-   statique, 106 tests, mesure de couverture) dans un environnement disposant du
+   statique, 144 tests, mesure de couverture) dans un environnement disposant du
    SDK Flutter 3.29.2 — cf. C-04 ;
 2. **désignation de rôles indépendants** de vérificateur et de validateur
    (§5.1.2.11 de la norme) — cf. C-05 ;

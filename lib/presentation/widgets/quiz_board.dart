@@ -27,9 +27,10 @@ class QuizBoard extends StatelessWidget {
     final remaining = session.remainingMs(clock.nowMs());
     final seconds = (remaining / 1000).ceil();
     final isUrgent = seconds <= 3;
-    final timeRatio = session.perQuestionMs <= 0
+    // `clamp` renvoie `num` : on force le type pour garder un `double` sûr.
+    final double timeRatio = session.perQuestionMs <= 0
         ? 0.0
-        : (remaining / session.perQuestionMs).clamp(0.0, 1.0);
+        : (remaining / session.perQuestionMs).clamp(0.0, 1.0).toDouble();
     return Column(
       children: <Widget>[
         _StatusBar(

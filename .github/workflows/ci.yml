@@ -97,13 +97,26 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Vérifier la présence du projet Android (écart C-10)
+        id: android
+        run: |
+          if [ -f android/app/build.gradle ] || [ -f android/app/build.gradle.kts ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::android/ absent — construction de l'APK ignorée (écart C-10 du dossier de conformité)"
+          fi
+
       - name: Résoudre les dépendances
+        if: steps.android.outputs.present == 'true'
         run: flutter pub get
 
       - name: Construire l'APK de release
+        if: steps.android.outputs.present == 'true'
         run: flutter build apk --release
 
       - name: Publier l'APK comme artefact
+        if: steps.android.outputs.present == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: apk-release-build${{ github.run_number }}

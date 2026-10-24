@@ -161,7 +161,7 @@ dont 4 bloquantes (C-03, C-04, C-05, et C-10 pour le build).
 | ID | Action | Responsable | Échéance | Critère de clôture |
 |---|---|---|---|---|
 | **A-01** | Nommer VER et VAL indépendants | PM | E7 | Noms inscrits §3.2 |
-| **A-02** | Exécuter la CI et compléter RAP-TESTS-001 | TST | E7 | 106 cas verts, couverture aux seuils |
+| **A-02** | Exécuter la CI et compléter RAP-TESTS-001 | TST | E7 | 144 cas verts, couverture aux seuils |
 | **A-03** | Compléter les citations `REQ-*` dans le code (17 exigences) | IMP | E7 | `grep` → 58 |
 | **A-04** | Générer et versionner `android/` (C-10) | IMP | E7 | Build APK reproductible |
 | **A-05** | Revue pédagogique du contenu (C-07) | expert désigné | E8 | Fiches de relecture signées |

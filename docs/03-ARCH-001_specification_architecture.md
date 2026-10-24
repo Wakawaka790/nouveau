@@ -155,7 +155,7 @@ d'entrée à DD-001.
 
 **Total : 45 composants de bibliothèque** — 9 domaine, 11 application, 8 infrastructure,
 17 présentation — auxquels s'ajoutent **2 fichiers d'amorçage** (`lib/app.dart`
-avec `QuizApp`, `lib/main.dart`), soit **48 fichiers** et **3 034 lignes**.
+avec `QuizApp`, `lib/main.dart`), soit **48 fichiers** et **3 037 lignes**.
 
 **Correspondance avec l'état antérieur** : les « view models » annoncés dans la
 version 1.0 (une classe `xxxViewModel` par écran) n'ont pas été réalisés : le

@@ -17,15 +17,15 @@ AN-FON-001 (analyse, 20 EF / 12 RG / 12 ENF / 23 ANO)
      │
      ├──► SRS-001 (44 REQ)
      │         │
-     │         ├──► ARCH-001 (46 composants, 10 interfaces)
+     │         ├──► ARCH-001 (45 composants, 10 interfaces)
      │         │         │
      │         │         └──► DD-001 (conception interne)
      │         │                   │
-     │         │                   └──► lib/** (code, 3 034 lignes — 48 fichiers)
+     │         │                   └──► lib/** (code, 3 037 lignes — 48 fichiers)
      │         │
      │         └──► SPEC-TESTS-001 (114 cas spécifiés)
      │                   │
-     │                   └──► test/** (106 cas automatisés) ──► RAP-TESTS-001
+     │                   └──► test/** (144 cas automatisés) ──► RAP-TESTS-001
      │
      └──► MATRICE-CONFORMITE (86 exigences normatives, 13 non-conformités)
 ```
@@ -153,7 +153,7 @@ moins un cas de test identifiés. **Aucune exigence orpheline.**
 
 | Anomalie (v7) | Traitement | Preuve |
 |---|---|---|
-| ANO-01 aucun test | 106 cas + CI bloquante | `test/**`, `ci.yml` |
+| ANO-01 aucun test | 144 cas + CI bloquante | `test/**`, `ci.yml` |
 | ANO-02 logique dans l'IHM | 4 couches, domaine pur | `test/architecture_test.dart` |
 | ANO-03 pas d'injection | 5 ports + racine de composition | ARCH-001 §3 |
 | ANO-04 aléa non graine | algèbre Fisher-Yates + `RandomSource` | TC-APP-07 |

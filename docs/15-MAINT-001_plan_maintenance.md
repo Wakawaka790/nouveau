@@ -53,7 +53,7 @@ réussit après**. Cette règle est ce qui empêche la régression silencieuse.
 | # | Technique | SIL 2 | Application |
 |---|---|---|---|
 | 1 | Analyse d'impact | **HR** | PLAN-CONF-001 §5.2, grille par répertoire |
-| 2 | Test de non-régression | **HR** | 106 cas existants + cas ajouté pour chaque correctif |
+| 2 | Test de non-régression | **HR** | 144 cas existants + cas ajouté pour chaque correctif |
 | 3 | Analyse de cause racine | R | obligatoire pour toute anomalie B ou M |
 | 4 | Revue de la modification | **HR** | LC-03 (STD-COD-001 §6) |
 | 5 | Traçabilité des modifications | R | registre PLAN-CONF-001 §6 + historique Git |
